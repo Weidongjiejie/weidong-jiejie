@@ -36,7 +36,7 @@
             </div>
 
             <div class="notes-grid">
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="详细解析IUL和Whole Life的区别，帮助保险小白做出正确选择。">
                     <div class="note-image">
                         <img src="images/note2.webp" alt="美国寿险小白必看">
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="深度解析Roth Conversion策略，如何合理规划税务。">
                     <div class="note-image">
                         <img src="images/note3.webp" alt="401K洗白">
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="全面分析529教育基金的优缺点，帮助家长做出明智决定。">
                     <div class="note-image">
                         <img src="images/note4.webp" alt="529教育基金">
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="详解寿险与Medicaid（白卡）的关系，避免常见误区。">
                     <div class="note-image">
                         <img src="images/note5.webp" alt="寿险与白卡">
                     </div>
@@ -88,7 +88,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="解答关于Whole Life现金价值取出的税务问题。">
                     <div class="note-image">
                         <img src="images/note7.webp" alt="Whole Life取钱">
                     </div>
@@ -101,7 +101,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="回顾美国寿险的发展历程，理解现代寿险产品。">
                     <div class="note-image">
                         <img src="images/note8.webp" alt="美国寿险演变">
                     </div>
@@ -114,7 +114,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="finance">
+                <article class="note-card" data-category="finance" data-desc="通俗讲解什么是年金，适合哪些人群。">
                     <div class="note-image">
                         <img src="images/note9.webp" alt="年金是什么">
                     </div>
@@ -127,7 +127,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="data">
+                <article class="note-card" data-category="data" data-desc="一个机器学习老兵分享两个时代的信任渡口。">
                     <div class="note-image">
                         <img src="images/note10.webp" alt="机器学习">
                     </div>
@@ -140,7 +140,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="data">
+                <article class="note-card" data-category="data" data-desc="微软2026纽约AI Tour活动记录。">
                     <div class="note-image">
                         <img src="images/note11.webp" alt="微软AI Tour">
                     </div>
@@ -153,7 +153,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="life">
+                <article class="note-card" data-category="life" data-desc="法拉盛美食推荐，三杯续餐厅体验。">
                     <div class="note-image">
                         <img src="images/note12.webp" alt="法拉盛美食">
                     </div>
@@ -166,7 +166,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="life">
+                <article class="note-card" data-category="life" data-desc="纽约中城青花餐厅美食推荐。">
                     <div class="note-image">
                         <img src="images/note13.webp" alt="青花餐厅">
                     </div>
@@ -179,7 +179,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="life">
+                <article class="note-card" data-category="life" data-desc="记录生活中的感悟与思考。">
                     <div class="note-image">
                         <img src="images/note14.webp" alt="世界路过我">
                     </div>
@@ -192,7 +192,7 @@
                     </div>
                 </article>
 
-                <article class="note-card" data-category="life">
+                <article class="note-card" data-category="life" data-desc="50+年龄段圣诞节穿搭分享。">
                     <div class="note-image">
                         <img src="images/note15.webp" alt="圣诞节穿搭">
                     </div>
@@ -207,6 +207,19 @@
             </div>
         </section>
     </main>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img src="" alt="" class="modal-image">
+            <div class="modal-body">
+                <span class="modal-category"></span>
+                <h2 class="modal-title"></h2>
+                <p class="modal-desc"></p>
+                <div class="modal-stats"></div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2024 未动姐姐. All rights reserved.</p>

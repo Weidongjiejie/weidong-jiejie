@@ -21,13 +21,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const notes = document.querySelectorAll('.note-card');
-    notes.forEach(card => {
+    const modal = document.getElementById('modal');
+    const modalImage = modal.querySelector('.modal-image');
+    const modalCategory = modal.querySelector('.modal-category');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalDesc = modal.querySelector('.modal-desc');
+    const modalStats = modal.querySelector('.modal-stats');
+    const modalClose = modal.querySelector('.modal-close');
+
+    noteCards.forEach(card => {
         card.addEventListener('click', function() {
+            const img = this.querySelector('.note-image img');
+            const category = this.getAttribute('data-category') || this.querySelector('.category-tag')?.textContent || '';
             const title = this.querySelector('h3').textContent;
-            console.log('Clicked note:', title);
+            const desc = this.getAttribute('data-desc') || '';
+            const stats = this.querySelector('.note-stats')?.innerHTML || '';
+
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+            modalCategory.textContent = category;
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            modalStats.innerHTML = stats;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
     });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
     const scrollElements = document.querySelectorAll('.note-card');
     
