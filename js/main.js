@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalFullscreenBtn.addEventListener('click', async function() {
                 try {
                     if (!document.fullscreenElement) {
-                        await modalContent.requestFullscreen();
+                        await modal.requestFullscreen();
                         modalFullscreenBtn.textContent = '退出全屏';
                     } else {
                         await document.exitFullscreen();
