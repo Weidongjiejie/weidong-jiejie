@@ -623,6 +623,7 @@ body {
     border-radius: 0;
     margin: 0;
     transform: none;
+    overflow: hidden;
 }
 
 .modal-overlay.force-fullscreen .modal-image {
@@ -635,13 +636,15 @@ body {
     margin: 0;
     width: 100%;
     padding: 1.5rem 2rem 2rem;
-    max-height: calc(100vh - 260px);
+    height: calc(100vh - 260px);
+    max-height: none;
     overflow-y: auto;
 }
 
 .modal-overlay.force-fullscreen .modal-full-content {
     width: 100%;
-    max-height: calc(100vh - 430px);
+    max-height: none;
+    overflow: visible;
 }
 
 .modal-overlay:fullscreen {

@@ -107,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modalFullscreenBtn) {
             modalFullscreenBtn.addEventListener('click', function() {
                 const active = modal.classList.toggle('force-fullscreen');
+                if (active) {
+                    modal.classList.remove('reading-mode');
+                    modalContent.classList.remove('reading-mode');
+                    if (modalFullContent.style.display === 'none') {
+                        modalFullContent.style.display = 'block';
+                        modalDesc.classList.add('expanded');
+                    }
+                }
                 modalFullscreenBtn.textContent = active ? '退出全屏' : '全屏';
             });
         }
