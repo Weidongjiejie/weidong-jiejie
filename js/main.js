@@ -55,12 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let lastXhsUrl = xhsProfileUrl;
 
         if (modalOriginalLink) {
-            modalOriginalLink.addEventListener('click', function(e) {
-                // Some browsers may not navigate when href is updated dynamically;
-                // open explicitly to ensure it works.
-                e.preventDefault();
+            modalOriginalLink.addEventListener('click', function() {
                 const url = lastXhsUrl || modalOriginalLink.href || xhsProfileUrl;
-                window.open(url, '_blank', 'noopener,noreferrer');
+                modalOriginalLink.href = url;
             });
         }
 
