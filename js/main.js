@@ -43,6 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const modalOriginalLink = modal.querySelector('.modal-original-link');
         const modalClose = modal.querySelector('.modal-close');
 
+        let lastXhsUrl = xhsProfileUrl;
+
+        if (modalOriginalLink) {
+            modalOriginalLink.addEventListener('click', function(e) {
+                // Some browsers may not navigate when href is updated dynamically;
+                // open explicitly to ensure it works.
+                e.preventDefault();
+                const url = lastXhsUrl || modalOriginalLink.href || xhsProfileUrl;
+                window.open(url, '_blank', 'noopener,noreferrer');
+            });
+        }
+
         noteCards.forEach(card => {
             card.addEventListener('click', function() {
                 const img = this.querySelector('.note-image img');
@@ -63,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalFullContent.style.display = 'none';
                 modalDesc.classList.remove('expanded');
                 modalStats.innerHTML = stats;
+                lastXhsUrl = xhs.url;
                 if (modalOriginalLink) {
                     modalOriginalLink.href = xhs.url;
                     modalOriginalLink.textContent = xhs.label;

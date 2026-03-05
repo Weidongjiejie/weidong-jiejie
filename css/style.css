@@ -723,6 +723,7 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .modal-original-link:hover {
