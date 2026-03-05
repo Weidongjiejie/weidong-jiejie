@@ -603,6 +603,11 @@ body {
     opacity: 1;
 }
 
+.modal-overlay.reading-mode {
+    align-items: stretch;
+    justify-content: stretch;
+}
+
 .modal-content {
     background: var(--bg-card);
     border-radius: 20px;
@@ -616,11 +621,14 @@ body {
 }
 
 .modal-content.reading-mode {
+    position: fixed;
+    inset: 0;
     width: 100vw;
     max-width: 100vw;
-    max-height: 100vh;
-    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     border-radius: 0;
+    margin: 0;
 }
 
 .modal-overlay.active .modal-content {

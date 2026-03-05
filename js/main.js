@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalFullContent.style.display = 'none';
                 modalDesc.classList.remove('expanded');
                 modalContent.classList.remove('reading-mode');
+                modal.classList.remove('reading-mode');
                 modalStats.innerHTML = stats;
                 lastXhsUrl = xhs.url;
                 if (modalOriginalLink) {
@@ -99,10 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalFullContent.style.display = 'block';
                 modalDesc.classList.add('expanded');
                 modalContent.classList.add('reading-mode');
+                modal.classList.add('reading-mode');
             } else {
                 modalFullContent.style.display = 'none';
                 modalDesc.classList.remove('expanded');
                 modalContent.classList.remove('reading-mode');
+                modal.classList.remove('reading-mode');
             }
         });
 
@@ -122,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function closeModal() {
             modal.classList.remove('active');
             modalContent.classList.remove('reading-mode');
+            modal.classList.remove('reading-mode');
             document.body.style.overflow = '';
         }
     }
