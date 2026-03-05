@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const xhsProfileUrl = 'https://www.xiaohongshu.com/user/profile/58ec2e436a6a694daa309b21';
     const modal = document.getElementById('modal');
+    const desktopMedia = window.matchMedia('(min-width: 1024px)');
 
     const exactNoteMap = {
         '信任的渡口—一个机器学习老兵的两个时代': 'https://www.xiaohongshu.com/explore/6994b99a000000001a02d59a',
@@ -79,10 +80,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalDesc.textContent = desc;
                 modalDesc.classList.add('clickable');
                 modalFullContent.textContent = fullContent;
-                modalFullContent.style.display = 'none';
-                modalDesc.classList.remove('expanded');
-                modalContent.classList.remove('reading-mode');
-                modal.classList.remove('reading-mode');
+                if (desktopMedia.matches) {
+                    modalFullContent.style.display = 'block';
+                    modalDesc.classList.add('expanded');
+                    modalContent.classList.add('reading-mode');
+                    modal.classList.add('reading-mode');
+                } else {
+                    modalFullContent.style.display = 'none';
+                    modalDesc.classList.remove('expanded');
+                    modalContent.classList.remove('reading-mode');
+                    modal.classList.remove('reading-mode');
+                }
                 modalStats.innerHTML = stats;
                 lastXhsUrl = xhs.url;
                 if (modalOriginalLink) {
