@@ -675,6 +675,37 @@ body {
     margin-bottom: 1rem;
 }
 
+.modal-desc.clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.modal-desc.clickable::after {
+    content: '点击展开全文';
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 10px;
+}
+
+.modal-desc.expanded::after {
+    content: '收起';
+}
+
+.modal-full-content {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 .modal-stats {
     color: var(--text-muted);
     font-size: 0.9rem;
