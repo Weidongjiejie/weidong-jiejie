@@ -631,11 +631,17 @@ body {
 }
 
 .modal-overlay.force-fullscreen .modal-body {
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     width: 100%;
+    padding: 1.5rem 2rem 2rem;
     max-height: calc(100vh - 260px);
     overflow-y: auto;
+}
+
+.modal-overlay.force-fullscreen .modal-full-content {
+    width: 100%;
+    max-height: calc(100vh - 430px);
 }
 
 .modal-overlay:fullscreen {
