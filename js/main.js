@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (modal) {
+        const modalContent = modal.querySelector('.modal-content');
         const modalImage = modal.querySelector('.modal-image');
         const modalCategory = modal.querySelector('.modal-category');
         const modalTitle = modal.querySelector('.modal-title');
@@ -80,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalFullContent.textContent = fullContent;
                 modalFullContent.style.display = 'none';
                 modalDesc.classList.remove('expanded');
+                modalContent.classList.remove('reading-mode');
                 modalStats.innerHTML = stats;
                 lastXhsUrl = xhs.url;
                 if (modalOriginalLink) {
@@ -96,9 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (modalFullContent.style.display === 'none') {
                 modalFullContent.style.display = 'block';
                 modalDesc.classList.add('expanded');
+                modalContent.classList.add('reading-mode');
             } else {
                 modalFullContent.style.display = 'none';
                 modalDesc.classList.remove('expanded');
+                modalContent.classList.remove('reading-mode');
             }
         });
 
@@ -117,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function closeModal() {
             modal.classList.remove('active');
+            modalContent.classList.remove('reading-mode');
             document.body.style.overflow = '';
         }
     }
