@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (modal) {
         const modalContent = modal.querySelector('.modal-content');
+        const modalFullscreenBtn = modal.querySelector('.modal-fullscreen-btn');
         const modalImage = modal.querySelector('.modal-image');
         const modalCategory = modal.querySelector('.modal-category');
         const modalTitle = modal.querySelector('.modal-title');
@@ -103,6 +104,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+        if (modalFullscreenBtn) {
+            modalFullscreenBtn.addEventListener('click', async function() {
+                try {
+                    if (!document.fullscreenElement) {
+                        await modalContent.requestFullscreen();
+                        modalFullscreenBtn.textContent = '退出全屏';
+                    } else {
+                        await document.exitFullscreen();
+                        modalFullscreenBtn.textContent = '全屏';
+                    }
+                } catch (err) {
+                    console.error('Fullscreen toggle failed:', err);
+                }
+            });
+
+            document.addEventListener('fullscreenchange', function() {
+                modalFullscreenBtn.textContent = document.fullscreenElement ? '退出全屏' : '全屏';
+            });
+        }
+
         modalDesc.addEventListener('click', function() {
             if (modalFullContent.style.display === 'none') {
                 modalFullContent.style.display = 'block';
@@ -134,6 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.classList.remove('active');
             modalContent.classList.remove('reading-mode');
             modal.classList.remove('reading-mode');
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
             document.body.style.overflow = '';
         }
     }
