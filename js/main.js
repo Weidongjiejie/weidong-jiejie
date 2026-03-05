@@ -24,7 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const xhsProfileUrl = 'https://www.xiaohongshu.com/user/profile/58ec2e436a6a694daa309b21';
     const modal = document.getElementById('modal');
 
+    const exactNoteMap = {
+        '信任的渡口—一个机器学习老兵的两个时代': 'https://www.xiaohongshu.com/explore/6994b99a000000001a02d59a',
+        '微软2026纽约AI Tour': 'https://www.xiaohongshu.com/explore/69718e24000000002200ad4e'
+    };
+
     function buildXhsUrl(card, title) {
+        const exactUrl = exactNoteMap[title];
+        if (exactUrl) {
+            return { url: exactUrl, label: '查看原文 →' };
+        }
         const explicit = card.getAttribute('data-xhs-url');
         if (explicit && explicit.trim() && explicit.trim() !== xhsProfileUrl) {
             return { url: explicit.trim(), label: '查看原文 →' };
@@ -137,4 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
     });
+
+    const backPageBtn = document.getElementById('backPageBtn');
+    if (backPageBtn) {
+        backPageBtn.addEventListener('click', function() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    }
 });

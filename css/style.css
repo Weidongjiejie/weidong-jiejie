@@ -730,3 +730,24 @@ body {
     background: var(--accent-hover);
     transform: translateY(-2px);
 }
+
+.back-page-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2100;
+    border: 1px solid var(--border);
+    background: rgba(26, 26, 26, 0.9);
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.2s ease;
+}
+
+.back-page-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
