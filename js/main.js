@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const collectionCards = document.querySelectorAll('.collection-card');
+    const noteCards = document.querySelectorAll('.note-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
-            collectionCards.forEach(card => {
+            noteCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
                 
                 if (category === 'all' || cardCategory === category) {
@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const noteCards = document.querySelectorAll('.note-card');
-    noteCards.forEach(card => {
+    const notes = document.querySelectorAll('.note-card');
+    notes.forEach(card => {
         card.addEventListener('click', function() {
             const title = this.querySelector('h3').textContent;
             console.log('Clicked note:', title);
         });
     });
 
-    const scrollElements = document.querySelectorAll('.note-card, .collection-card');
+    const scrollElements = document.querySelectorAll('.note-card');
     
     const observerOptions = {
         threshold: 0.1,

@@ -365,6 +365,10 @@ body {
     display: none;
 }
 
+.note-card.hidden {
+    display: none;
+}
+
 .collection-image {
     width: 100%;
     height: 180px;
