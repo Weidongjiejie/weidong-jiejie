@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalDesc = modal.querySelector('.modal-desc');
     const modalFullContent = modal.querySelector('.modal-full-content');
     const modalStats = modal.querySelector('.modal-stats');
+    const modalOriginalLink = modal.querySelector('.modal-original-link');
     const modalClose = modal.querySelector('.modal-close');
 
     noteCards.forEach(card => {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const title = this.querySelector('h3').textContent;
             const desc = this.getAttribute('data-desc') || '';
             const fullContent = this.getAttribute('data-full') || desc;
+            const xhsUrl = this.getAttribute('data-xhs-url') || 'https://www.xiaohongshu.com/user/profile/58ec2e436a6a694daa309b21';
             const stats = this.querySelector('.note-stats')?.innerHTML || '';
 
             modalImage.src = img.src;
@@ -49,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
             modalFullContent.style.display = 'none';
             modalDesc.classList.remove('expanded');
             modalStats.innerHTML = stats;
+            if (modalOriginalLink) {
+                modalOriginalLink.href = xhsUrl;
+            }
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';

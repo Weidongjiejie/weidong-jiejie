@@ -712,3 +712,20 @@ body {
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
+
+.modal-original-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.modal-original-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
