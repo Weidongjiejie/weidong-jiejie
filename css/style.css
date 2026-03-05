@@ -608,6 +608,36 @@ body {
     justify-content: stretch;
 }
 
+.modal-overlay.force-fullscreen {
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.modal-overlay.force-fullscreen .modal-content {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    transform: none;
+}
+
+.modal-overlay.force-fullscreen .modal-image {
+    border-radius: 0;
+    height: 260px;
+}
+
+.modal-overlay.force-fullscreen .modal-body {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    max-height: calc(100vh - 260px);
+    overflow-y: auto;
+}
+
 .modal-overlay:fullscreen {
     display: flex;
     align-items: stretch;
