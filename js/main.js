@@ -106,16 +106,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (modalFullscreenBtn) {
             modalFullscreenBtn.addEventListener('click', function() {
-                const active = modal.classList.toggle('force-fullscreen');
-                if (active) {
-                    modal.classList.remove('reading-mode');
-                    modalContent.classList.remove('reading-mode');
-                    if (modalFullContent.style.display === 'none') {
-                        modalFullContent.style.display = 'block';
-                        modalDesc.classList.add('expanded');
-                    }
-                }
-                modalFullscreenBtn.textContent = active ? '退出全屏' : '全屏';
+                const payload = {
+                    image: modalImage.src,
+                    imageAlt: modalImage.alt,
+                    category: modalCategory.textContent,
+                    title: modalTitle.textContent,
+                    desc: modalDesc.textContent,
+                    content: modalFullContent.textContent || modalDesc.textContent,
+                    statsHtml: modalStats.innerHTML,
+                    xhsUrl: lastXhsUrl || xhsProfileUrl
+                };
+                const key = `reader_${Date.now()}`;
+                sessionStorage.setItem(key, JSON.stringify(payload));
+                window.location.href = `reader.html#${key}`;
             });
         }
 
